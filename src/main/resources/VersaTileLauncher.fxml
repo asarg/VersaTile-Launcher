@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="517.0" maxWidth="707.0" minHeight="517.0" minWidth="707.0" prefHeight="517.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <Pane prefHeight="434.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(#563d7c 0,#6f5499 100%);">
+         <children>
+            <VBox prefHeight="376.0" prefWidth="707.0">
+               <children>
+                  <HBox prefHeight="133.0" prefWidth="600.0">
+                     <children>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <Rectangle arcHeight="20.0" arcWidth="20.0" fill="TRANSPARENT" height="100.0" stroke="#cdbfe3" strokeType="INSIDE" width="100.0" />
+                              <Label text="Vt" textFill="WHITE">
+                                 <font>
+                                    <Font name="Helvetica Bold" size="60.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets bottom="20.0" />
+                           </HBox.margin>
+                        </StackPane>
+                        <Region HBox.hgrow="ALWAYS" />
+                     </children>
+                     <padding>
+                        <Insets top="40.0" />
+                     </padding>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="170.0">
+                     <children>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="VersaTile is a cross-platform simulator for Algorithmic Self-Assembly allowing for rapid simulation, prototyping, and experimentation in multiple models of self-assembly." textAlignment="CENTER" wrappingWidth="356.4259033203125">
+                           <font>
+                              <Font name="Helvetica" size="20.0" />
+                           </font>
+                        </Text>
+                        <Region HBox.hgrow="ALWAYS" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0">
+                     <children>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label text="created by the Algorithmic Self-Assembly Research Group" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Helvetica Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Region HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="107.0">
+                     <children>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label text="at The University of Texas-Pan American" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Helvetica Light" size="14.0" />
+                           </font>
+                        </Label>
+                        <Region HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="installBtn" mnemonicParsing="false" onAction="#installVersaTile" prefHeight="75.0" prefWidth="322.0" style="-fx-border-radius: 0; -fx-background-radius: none; -fx-background-color: #5cb85c;" text="Setup" textFill="WHITE">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <HBox fx:id="progressBox" alignment="CENTER" visible="false">
+               <children>
+                  <Label fx:id="downloadLabel" text="Downloading...">
+                     <font>
+                        <Font name="Helvetica Light Oblique" size="13.0" />
+                     </font>
+                  </Label>
+                  <Region prefHeight="117.0" prefWidth="52.0" />
+                  <ProgressBar fx:id="progressBar" prefWidth="200.0" progress="0.0" />
+               </children>
+            </HBox>
+            <Button fx:id="launchBtn" layoutX="203.0" layoutY="31.0" mnemonicParsing="false" onAction="#launchVersaTile" prefHeight="75.0" prefWidth="322.0" style="-fx-border-radius: 0; -fx-background-radius: none; -fx-background-color: #5cb85c;" text="Launch" textFill="WHITE" visible="false">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+         </children>
+      </StackPane>
+   </children>
+</VBox>
