@@ -1,21 +1,17 @@
-import javafx.application.Platform;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.HBox;
-import sun.tools.jar.resources.jar;
-import org.apache.commons.io.FilenameUtils;
+import javafx.scene.text.Text;
 
-import java.io.*;
-import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ResourceBundle;
 
-public class Controller {
+public class Controller{
     @FXML
     Button installBtn;
 
@@ -32,17 +28,42 @@ public class Controller {
     ProgressBar progressBar;
 
     @FXML
+    Text mainText;
+
+    Release newRelease = null;
+    Downloader downloader = null;
+    Version currentVersion = null;
+
+    public void setLatestRelease(Release r){
+        newRelease =r;
+        if(currentVersion!=null && newRelease !=null){
+            mainText.setText("A new version of VersaTile is available.");
+            installBtn.setText("Update");
+        }
+    }
+
+    public void setCurrentVersion(Version v){
+        currentVersion = v;
+        if(currentVersion!=null && newRelease !=null){
+            mainText.setText("A new version of VersaTile is available.");
+            installBtn.setText("Update");
+        }
+    }
+
+    @FXML
     public void installVersaTile(){
         installBtn.setVisible(false);
         try {
-            Release latest = AutoUpdate.getLatestAvailableRelease();
-            Downloader downloader = new Downloader(latest);
+            if(newRelease==null)
+                newRelease = AutoUpdate.getLatestAvailableRelease();
+            downloader = new Downloader(newRelease);
             progressBox.setVisible(true);
             progressBar.progressProperty().bind(downloader.progressProperty());
             progressBox.visibleProperty().bind(downloader.runningProperty());
             downloader.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
                 @Override
                 public void handle(WorkerStateEvent event) {
+                    mainText.setText("VersaTile is ready to launch.");
                     launchBtn.setVisible(true);
                 }
             });
