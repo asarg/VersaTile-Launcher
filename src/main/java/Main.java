@@ -11,7 +11,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Version v = AutoUpdate.getVersion();
-        System.out.println("Installed " + v.toString());
+        if(v!=null)
+            System.out.println("Installed " + v.toString());
         Release newRelease = null;
 
         //try to check internet for updates
